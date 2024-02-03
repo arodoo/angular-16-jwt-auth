@@ -12,6 +12,6 @@ export class HttpRequestInterceptor implements HttpInterceptor {
     }
 }
 
-export const HttpRequestInterceptorProviders = [
+export const httpRequestInterceptorProviders = [
     { provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true }
 ];
