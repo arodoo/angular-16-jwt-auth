@@ -6,8 +6,10 @@ import { UserService } from '../_services/user.service';
   templateUrl: './board-admin.component.html',
   styleUrls: ['./board-admin.component.css']
 })
+
 export class BoardAdminComponent implements OnInit {
   content?: string;
+  clientesData: any[] = [];
 
   constructor(private userService: UserService) { }
 
@@ -15,6 +17,8 @@ export class BoardAdminComponent implements OnInit {
     this.userService.getAdminBoard().subscribe({
       next: data => {
         this.content = data;
+        this.clientesData = JSON.parse(data);
+        console.log(this.clientesData)
       },
       error: err => {
         console.log(err)
